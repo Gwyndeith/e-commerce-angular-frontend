@@ -27,7 +27,9 @@
     </ng-container>
 
     <ng-container matColumnDef="imageUrl">
-      <mat-header-cell *matHeaderCellDef>Image URL</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef appColumnResize
+        >Image URL</mat-header-cell
+      >
       <mat-cell *matCellDef="let product">
         {{ product.imageUrl }}
       </mat-cell>
