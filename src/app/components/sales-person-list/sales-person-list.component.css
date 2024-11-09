@@ -1,0 +1,16 @@
+.sales-person-table-div {
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: purple;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.met-quota {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.did-not-meet-quota {
+  background-color: rgba(255, 0, 0, 0.3);
+}

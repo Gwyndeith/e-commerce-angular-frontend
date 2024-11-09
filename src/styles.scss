@@ -1,0 +1,12 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/theming";
+
+// Define your custom color palettes
+$my-app-primary: mat-palette($mat-indigo);
+$my-app-accent: mat-palette($mat-pink, 500);
+
+// Define the theme using the palettes
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent);
+
+// Include the theme styles
+@include angular-material-theme($my-app-theme);

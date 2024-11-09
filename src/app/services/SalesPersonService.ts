@@ -18,7 +18,6 @@ export class SalesPersonService {
   getSalesPeopleList() {
     this.http.get(this.GET_SALES_PEOPLE_URL).subscribe((response: any) => {
       this.salesPersonListSubject.next(response);
-      console.log(response);
     });
   }
 }

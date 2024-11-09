@@ -1,0 +1,12 @@
+.page-layout-container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+app-sales-person-list {
+  width: 70%;
+}

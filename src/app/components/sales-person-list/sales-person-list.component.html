@@ -1,18 +1,48 @@
-<table border="1">
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Sales Volume</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let salesPerson of salesPersonList">
-      <td>{{ salesPerson.firstName }}</td>
-      <td>{{ salesPerson.lastName }}</td>
-      <td>{{ salesPerson.email }}</td>
-      <td>{{ salesPerson.salesVolume }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="sales-person-table-div">
+  <mat-table [dataSource]="salesPersonList.data" class="mat-elevation-z8">
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+      <mat-cell *matCellDef="let salesPerson">
+        {{ salesPerson.firstName }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let salesPerson">{{
+        salesPerson.lastName
+      }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+      <mat-cell *matCellDef="let salesPerson">{{ salesPerson.email }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="salesVolume">
+      <mat-header-cell *matHeaderCellDef>Sales Volume</mat-header-cell>
+      <mat-cell *matCellDef="let salesPerson">
+        {{ salesPerson.salesVolume | currency : "TL" }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="metQuota">
+      <mat-header-cell *matHeaderCellDef>Met Quota?</mat-header-cell>
+      <mat-cell
+        *matCellDef="let salesPerson"
+        [ngClass]="{
+          'met-quota': salesPerson.salesVolume >= 60000,
+          'did-not-meet-quota': !(salesPerson.salesVolume >= 60000)
+        }"
+      >
+        {{ salesPerson.salesVolume >= 60000 ? "Yes" : "No" }}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row
+      matRipple
+      *matRowDef="let row; columns: displayedColumns"
+    ></mat-row>
+  </mat-table>
+</div>
