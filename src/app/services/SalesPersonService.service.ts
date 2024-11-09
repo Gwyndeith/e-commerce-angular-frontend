@@ -15,7 +15,7 @@ export class SalesPersonService {
 
   constructor(private http: HttpClient) {}
 
-  getSalesPeopleList() {
+  getSalesPeople() {
     this.http.get(this.GET_SALES_PEOPLE_URL).subscribe((response: any) => {
       this.salesPersonListSubject.next(response);
     });

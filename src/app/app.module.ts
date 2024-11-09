@@ -14,9 +14,12 @@ import {
 } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductService } from './services/product.service';
+import { SalesPersonService } from './services/SalesPersonService.service';
 
 @NgModule({
-  declarations: [AppComponent, SalesPersonListComponent],
+  declarations: [AppComponent, SalesPersonListComponent, ProductListComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -39,6 +42,8 @@ import { MatCardModule } from '@angular/material/card';
         animation: { enterDuration: 200, exitDuration: 700 }, // Optional animation customization
       },
     },
+    ProductService,
+    SalesPersonService,
   ],
   bootstrap: [AppComponent],
 })

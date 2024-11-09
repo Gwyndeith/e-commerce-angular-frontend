@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SalesPerson } from '../../models/sales-person';
-import { SalesPersonService } from '../../services/SalesPersonService';
+import { SalesPersonService } from '../../services/SalesPersonService.service';
 import { Subscription } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatRippleModule } from '@angular/material/core';
@@ -11,8 +11,6 @@ import { MatRippleModule } from '@angular/material/core';
   styleUrl: './sales-person-list.component.css',
 })
 export class SalesPersonListComponent implements OnInit {
-  private subscriptions!: Subscription;
-
   displayedColumns: string[] = [
     'firstName',
     'lastName',
@@ -24,13 +22,15 @@ export class SalesPersonListComponent implements OnInit {
   constructor(private salesPersonService: SalesPersonService) {}
 
   ngOnInit(): void {
-    this.salesPersonService.getSalesPeopleList();
+    this.salesPersonService.getSalesPeople();
     this.initSubscriptions();
   }
 
   initSubscriptions() {
-    this.salesPersonService.salesPersonList$.subscribe((salesPersonList) => {
-      this.salesPersonList.data = salesPersonList;
-    });
+    this.salesPersonService.salesPersonList$.subscribe(
+      (salesPersonList: SalesPerson[]) => {
+        this.salesPersonList.data = salesPersonList;
+      }
+    );
   }
 }
