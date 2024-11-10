@@ -51,7 +51,10 @@
           'not-in-stock': !(product.unitsInStock >= 100)
         }"
       >
-        <mat-checkbox [checked]="product.unitsInStock >= 100"></mat-checkbox>
+        <mat-checkbox
+          disabled="true"
+          [checked]="product.unitsInStock >= 100"
+        ></mat-checkbox>
       </mat-cell>
     </ng-container>
 
