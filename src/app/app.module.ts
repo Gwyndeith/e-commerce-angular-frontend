@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductService } from './services/product.service';
 import { SalesPersonService } from './services/SalesPersonService.service';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [AppComponent, SalesPersonListComponent, ProductListComponent],
@@ -30,6 +31,7 @@ import { SalesPersonService } from './services/SalesPersonService.service';
     MatButtonModule,
     MatCardModule,
     MatCommonModule,
+    MatCheckboxModule,
   ],
   providers: [
     provideHttpClient(),

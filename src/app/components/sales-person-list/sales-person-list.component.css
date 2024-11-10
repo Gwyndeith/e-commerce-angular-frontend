@@ -13,3 +13,9 @@
 .did-not-meet-quota {
   background-color: rgba(255, 0, 0, 0.3);
 }
+
+mat-header-cell {
+  background-color: #9c27b0;
+  color: white;
+  font-weight: lighter !important;
+}

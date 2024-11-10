@@ -10,11 +10,11 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductListComponent implements OnInit {
   displayedColumns: string[] = [
+    'imageUrl',
     'sku',
     'name',
     'description',
     'unitPrice',
-    'imageUrl',
     'active',
     'unitsInStock',
     'dateCreated',

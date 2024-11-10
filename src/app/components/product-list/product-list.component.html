@@ -1,5 +1,14 @@
 <div class="product-table-div">
   <mat-table [dataSource]="productList.data" class="mat-elevation-z8">
+    <ng-container matColumnDef="imageUrl">
+      <mat-header-cell *matHeaderCellDef appColumnResize></mat-header-cell>
+      <mat-cell *matCellDef="let product">
+        <img
+          [src]="product.imageUrl || 'assets/images/products/placeholder.jpg'"
+        />
+      </mat-cell>
+    </ng-container>
+
     <ng-container matColumnDef="sku">
       <mat-header-cell *matHeaderCellDef>SKU</mat-header-cell>
       <mat-cell *matCellDef="let product">
@@ -26,15 +35,6 @@
       </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="imageUrl">
-      <mat-header-cell *matHeaderCellDef appColumnResize
-        >Image URL</mat-header-cell
-      >
-      <mat-cell *matCellDef="let product">
-        {{ product.imageUrl }}
-      </mat-cell>
-    </ng-container>
-
     <ng-container matColumnDef="active">
       <mat-header-cell *matHeaderCellDef>Active</mat-header-cell>
       <mat-cell *matCellDef="let product">
@@ -51,7 +51,7 @@
           'not-in-stock': !(product.unitsInStock >= 100)
         }"
       >
-        {{ product.unitsInStock >= 100 ? "Yes" : "No" }}
+        <mat-checkbox [checked]="product.unitsInStock >= 100"></mat-checkbox>
       </mat-cell>
     </ng-container>
 

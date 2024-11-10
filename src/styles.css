@@ -18,3 +18,22 @@ body {
   pointer-events: none;
   background-color: rgba(0, 0, 255, 0.2);
 }
+
+mat-cell {
+  justify-content: center;
+  text-align: center !important;
+}
+
+mat-cell,
+mat-header-cell {
+  border-right: 1px solid rgba(0, 0, 0, 0.1); /* Adjust color and thickness as needed */
+}
+
+mat-header-cell {
+  justify-content: center;
+  font-size: larger;
+  font-weight: bold !important;
+  background-color: #9c27b0 !important;
+  color: white;
+  font-weight: lighter !important;
+}

@@ -13,3 +13,8 @@
 .not-in-stock {
   background-color: rgba(255, 0, 0, 0.3);
 }
+
+mat-header-cell:is(:first-child) {
+  background-color: white !important;
+  color: white !important;
+}
